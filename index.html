@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Law Town RP - الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+    :root {--primary:#fff;--dark:#640000;--hover:#b60000;--active:#ffaaaa;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+    body{background:linear-gradient(135deg,var(--dark),#8f0202);color:var(--primary);min-height:100vh;display:flex;flex-direction:column;text-align:center;}
+    .navbar{background:rgba(116,1,1,0.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,0.2);position:fixed;width:100%;top:0;z-index:100;flex-wrap:wrap;gap:.8rem;}
+    .logo{font-size:2rem;font-weight:900;color:var(--primary);text-decoration:none;flex:1;}
+    .nav-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}
+    .nav-links a{color:var(--primary);text-decoration:none;font-weight:600;position:relative;transition:.3s;}
+    .nav-links a:hover{color:var(--hover);}
+    .nav-links a.active{color:var(--active);}
+    .nav-links a.active::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:2px;background:var(--active);border-radius:10px;}
+    .fivem-btn{background:var(--primary);color:var(--dark);padding:.7rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:10px;transition:.3s;white-space:nowrap;}
+    .fivem-btn:hover{background:var(--hover);color:var(--light);transform:translateY(-2px);}
+    .fivem-btn img{width:25px;height:25px;}
+    .hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;margin-top:100px;}
+    .hero h1{font-size:3rem;font-weight:900;margin-bottom:1rem;}
+    .hero p{font-size:1.3rem;max-width:600px;margin-bottom:2rem;}
+    footer{background:rgba(255,255,255,0.05);padding:1rem;}
+    @media(max-width:768px){.navbar{flex-direction:column;align-items:center;padding:1rem;gap:.8rem;}
+      .logo{font-size:1.6rem;text-align:center;}
+      .nav-links{gap:1rem;font-size:.95rem;}
+      .fivem-btn{font-size:.9rem;padding:.6rem 1.2rem;}
+      .hero{margin-top:150px;}
+      .hero h1{font-size:2rem;}
+      .hero p{font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Law Town RP</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">الصفحة الرئيسية</a>
+      <a href="rules.html">القوانين</a>
+      <a href="store.html">المتجر</a>
+    </div>
+    <a href="https://cfx.re/join/YOURFIVEMCODE" class="fivem-btn" target="_blank">
+      <img src="https://cdn.discordapp.com/attachments/1315712201088176220/1428124033658208256/fivem.png" alt="FiveM"> انضم الآن
+    </a>
+  </nav>
+
+  <section class="hero">
+    <h1>مرحباً بك في Law Town RP</h1>
+    <p>ادخل إلى عالم مليء بالتفاصيل الواقعية والمغامرات الشيقة. انضم إلينا الآن وابدأ رحلتك!</p>
+    <a href="https://cfx.re/join/YOURFIVEMCODE" target="_blank" class="fivem-btn">
+      <img src="https://cdn.discordapp.com/attachments/1315712201088176220/1428124033658208256/fivem.png" alt="FiveM"> انضم الآن
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
+  </footer>
+</body>
+</html>
