@@ -8,6 +8,7 @@
   <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
     :root {
       --primary: #ffffff;
       --dark: #640000;
@@ -54,6 +55,10 @@
       transition: 0.3s;
     }
 
+    .logo:hover {
+      text-shadow: 0 0 15px var(--primary);
+    }
+
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -86,7 +91,7 @@
       border-radius: 10px;
     }
 
-    .discord-btn {
+    .join-btn {
       background: var(--primary);
       color: var(--dark);
       padding: 0.7rem 1.5rem;
@@ -99,18 +104,19 @@
       gap: 10px;
     }
 
-    .discord-btn:hover {
+    .join-btn:hover {
       background: var(--hover);
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+      color: var(--light);
     }
 
-    .discord-btn img {
+    .join-btn img {
       width: 25px;
       height: 25px;
     }
 
-    /* Page Layout */
+    /* Main content */
     .container {
       max-width: 1200px;
       margin: 100px auto 50px;
@@ -201,8 +207,103 @@
       <a href="rules.html" class="active">القوانين</a>
       <a href="https://your-store-link.com" target="_blank">المتجر</a>
     </div>
-    <a href="https://cfx.re/join/yourfivemcode" class="discord-btn" target="_blank">
+    <a href="https://cfx.re/join/yourfivemcode" class="join-btn" target="_blank">
       <img src="https://cdn.discordapp.com/attachments/1315712201088176220/1428124033658208256/fivem.png" alt="FiveM">
       انضم الآن
     </a>
-  </
+  </nav>
+
+  <div class="container">
+    <div class="rules-grid" id="rulesGrid"></div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <div class="modal">
+    <div class="modal-content">
+      <button class="close-btn">×</button>
+      <h2 class="modal-title"></h2>
+      <div class="modal-rules"></div>
+    </div>
+  </div>
+
+  <script>
+    // Highlight current page in navbar
+    const current = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === current) {
+        link.classList.add('active');
+      }
+    });
+
+    // Load rules.json
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('rules.json')
+        .then(response => response.json())
+        .then(rules => {
+          const rulesGrid = document.getElementById('rulesGrid');
+          const categoryIcons = {
+            general: '<i class="fas fa-gavel"></i>',
+            safe: '<i class="fas fa-shield-alt"></i>',
+            crime: '<i class="fas fa-exclamation-triangle"></i>',
+            robbery: '<i class="fas fa-money-bill-wave"></i>',
+            store: '<i class="fas fa-shopping-cart"></i>'
+          };
+
+          for (const category in rules) {
+            const ruleCard = document.createElement('div');
+            ruleCard.classList.add('rule-card');
+            ruleCard.innerHTML = `
+              <div class="rule-header">
+                <div class="rule-icon">${categoryIcons[category] || '<i class="fas fa-gavel"></i>'}</div>
+                <h2 class="rule-title">${rules[category].title}</h2>
+              </div>
+              <div class="rule-content">${rules[category].description}</div>
+            `;
+            ruleCard.addEventListener('click', () => openModal(category, rules[category]));
+            rulesGrid.appendChild(ruleCard);
+          }
+        })
+        .catch(err => console.error('Error loading rules.json:', err));
+    });
+
+    function openModal(category, rules) {
+      const modal = document.querySelector('.modal');
+      const modalTitle = modal.querySelector('.modal-title');
+      const modalRules = modal.querySelector('.modal-rules');
+      modalRules.innerHTML = '';
+      modalTitle.textContent = rules.title;
+
+      const icons = {
+        general: '<i class="fas fa-gavel"></i>',
+        safe: '<i class="fas fa-shield-alt"></i>',
+        crime: '<i class="fas fa-exclamation-triangle"></i>',
+        robbery: '<i class="fas fa-money-bill-wave"></i>',
+        store: '<i class="fas fa-shopping-cart"></i>'
+      };
+
+      rules.rules.forEach(rule => {
+        const div = document.createElement('div');
+        div.classList.add('modal-rule-item');
+        div.innerHTML = `
+          <div class="modal-rule-icon">${icons[category]}</div>
+          <p class="modal-rule-text">${rule.text}</p>
+        `;
+        modalRules.appendChild(div);
+      });
+
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('close-btn') || e.target.classList.contains('modal')) {
+        document.querySelector('.modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+  </script>
+</body>
+</html>
