@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Law Town RP - الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+    :root {
+      --primary: #ffffff;
+      --dark: #640000;
+      --hover: #b60000;
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;}
+    body {
+      background: linear-gradient(135deg, var(--dark), #8f0202);
+      color: var(--primary);
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .navbar {
+      background: rgba(116, 1, 1, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--hover);
+    }
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #f5f5f5;
+    }
+    .join-btn {
+      background: var(--primary);
+      color: var(--dark);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .join-btn:hover {
+      background: var(--hover);
+      color: var(--primary);
+      transform: scale(1.05);
+    }
+    footer {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      .nav-links { gap: 1rem; font-size: 0.9rem; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">Law Town RP</a>
+    <div class="nav-links">
+      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="rules.html">القوانين</a>
+      <a href="https://your-store-link.com" target="_blank">المتجر</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>مرحباً بك في Law Town RP</h1>
+    <p>ادخل إلى عالم مليء بالإثارة والواقعية، حيث يبدأ كل شيء من القوانين إلى المغامرات. انضم إلينا الآن وابدأ رحلتك!</p>
+    <a href="https://discord.gg/C9NGY4TKBe" target="_blank" class="join-btn">
+      <i class="fab fa-discord"></i> انضم الآن
+    </a>
+  </section>
+
+  <footer>
+    <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
+  </footer>
+
+</body>
+</html>
