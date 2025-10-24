@@ -12,6 +12,7 @@
       --primary: #ffffff;
       --dark: #640000;
       --hover: #b60000;
+      --active: #ffaaaa;
     }
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;}
     body {
@@ -46,9 +47,21 @@
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
+      position: relative;
     }
-    .nav-links a:hover {
-      color: var(--hover);
+    .nav-links a:hover { color: var(--hover); }
+    .nav-links a.active {
+      color: var(--active);
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--active);
+      border-radius: 10px;
     }
     .hero {
       flex: 1;
@@ -78,11 +91,18 @@
       text-decoration: none;
       font-size: 1.2rem;
       transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
     .join-btn:hover {
       background: var(--hover);
       color: var(--primary);
       transform: scale(1.05);
+    }
+    .join-btn img {
+      width: 30px;
+      height: 30px;
     }
     footer {
       background: rgba(255, 255, 255, 0.05);
@@ -100,7 +120,7 @@
   <nav class="navbar">
     <a href="index.html" class="logo">Law Town RP</a>
     <div class="nav-links">
-      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="index.html" class="active">الصفحة الرئيسية</a>
       <a href="rules.html">القوانين</a>
       <a href="https://your-store-link.com" target="_blank">المتجر</a>
     </div>
@@ -109,14 +129,27 @@
   <section class="hero">
     <h1>مرحباً بك في Law Town RP</h1>
     <p>ادخل إلى عالم مليء بالإثارة والواقعية، حيث يبدأ كل شيء من القوانين إلى المغامرات. انضم إلينا الآن وابدأ رحلتك!</p>
-    <a href="https://discord.gg/C9NGY4TKBe" target="_blank" class="join-btn">
-      <i class="fab fa-discord"></i> انضم الآن
+    <a href="https://cfx.re/join/ltrp" target="_blank" class="join-btn">
+      <img src="https://media.discordapp.net/attachments/1317518281380462692/1431215951160016980/2560px-FiveM-Logo.png?ex=68fc9b39&is=68fb49b9&hm=2094e8c36ce9c8e50ab21ca438f1122c7b17cdd409995a5d5970c99a1e8cbb61&=&format=webp&quality=lossless&width=1240&height=698" alt="FiveM">
+      انضم الآن
     </a>
   </section>
 
   <footer>
     <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
   </footer>
+
+  <script>
+    // Highlight the current page link
+    const current = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      if (link.getAttribute('href') === current) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
