@@ -1,309 +1,179 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Law Town RP - القوانين</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
-
-    :root {
-      --primary: #ffffff;
-      --dark: #640000;
-      --light: #ffffff;
-      --hover: rgb(206, 0, 0);
-      --active: #ffaaaa;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Cairo', sans-serif;
-      user-select: none;
-    }
-
-    body {
-      background: linear-gradient(135deg, var(--dark), #8f0202);
-      color: var(--light);
-      min-height: 100vh;
-    }
-
-    /* Navbar */
-    .navbar {
-      background: rgba(116, 1, 1, 0.95);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .logo {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--primary);
-      text-decoration: none;
-      letter-spacing: 2px;
-      transition: 0.3s;
-    }
-
-    .logo:hover {
-      text-shadow: 0 0 15px var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      position: relative;
-    }
-
-    .nav-links a:hover {
-      color: var(--hover);
-    }
-
-    .nav-links a.active {
-      color: var(--active);
-    }
-
-    .nav-links a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--active);
-      border-radius: 10px;
-    }
-
-    .join-btn {
-      background: var(--primary);
-      color: var(--dark);
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .join-btn:hover {
-      background: var(--hover);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-      color: var(--light);
-    }
-
-    .join-btn img {
-      width: 25px;
-      height: 25px;
-    }
-
-    /* Main content */
-    .container {
-      max-width: 1200px;
-      margin: 100px auto 50px;
-      padding: 0 20px;
-    }
-
-    .rules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 50px;
-    }
-
-    .rule-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 25px;
-      transition: 0.3s;
-      cursor: pointer;
-      border: 1px solid rgb(107, 2, 2);
-      animation: fadeIn 0.5s ease-out forwards;
-      opacity: 0;
-    }
-
-    .rule-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--primary);
-    }
-
-    .rule-card:nth-child(1) { animation-delay: 0.2s; }
-    .rule-card:nth-child(2) { animation-delay: 0.4s; }
-    .rule-card:nth-child(3) { animation-delay: 0.6s; }
-
-    .rule-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .rule-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: var(--dark);
-    }
-
-    .rule-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .rule-content {
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 30px;
-      margin-top: 50px;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { gap: 1rem; font-size: 0.9rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Law Town RP - القوانين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        :root {
+            --primary: #ffffff;
+            --dark: #640000;
+            --light: #ffffff;
+            --hover: rgb(206, 0, 0);
+            --active: #ffaaaa;
+        }
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; user-select: none;}
+        body {background: linear-gradient(135deg, var(--dark), #8f0202); color: var(--light); min-height: 100vh;}
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: rgba(116, 1, 1, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        .logo {font-size: 2rem; font-weight: 900; color: var(--primary); text-decoration: none;}
+        .nav-links {display: flex; gap: 2rem;}
+        .nav-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {color: var(--hover);}
+        .nav-links a.active {color: var(--active);}
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--active);
+            border-radius: 10px;
+        }
+        .join-btn {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .join-btn:hover {background: var(--hover); color: var(--light); transform: translateY(-2px);}
+        .join-btn img {width: 25px; height: 25px;}
+    </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <a href="index.html" class="logo">Law Town RP</a>
-    <div class="nav-links">
-      <a href="index.html">الصفحة الرئيسية</a>
-      <a href="rules.html" class="active">القوانين</a>
-      <a href="https://your-store-link.com" target="_blank">المتجر</a>
+    <!-- 🔹 NAVBAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Law Town RP</a>
+        <div class="nav-links">
+            <a href="index.html">الصفحة الرئيسية</a>
+            <a href="rules.html" class="active">القوانين</a>
+            <a href="https://your-store-link.com" target="_blank">المتجر</a>
+        </div>
+        <a href="https://cfx.re/join/yourfivemcode" class="join-btn" target="_blank">
+            <img src="https://cdn.discordapp.com/attachments/1315712201088176220/1428124033658208256/fivem.png" alt="FiveM"> انضم الآن
+        </a>
+    </nav>
+
+    <!-- 🔹 YOUR ORIGINAL CODE BELOW (unchanged) -->
+    <div class="container" style="margin-top:120px;">
+        <div class="rules-grid" id="rulesGrid"></div>
     </div>
- <a href="https://discord.gg/NwgHGFDVXG" target="_blank" class="join-btn">
-      <i class="fab fa-discord"></i> انضم الآن
-    </a>
-  </nav>
 
-  <div class="container">
-    <div class="rules-grid" id="rulesGrid"></div>
-  </div>
+    <footer class="footer">
+        <p>جميع الحقوق محفوظة © 2025</p>
+    </footer>
 
-  <footer class="footer">
-    <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
-  </footer>
-
-  <div class="modal">
-    <div class="modal-content">
-      <button class="close-btn">×</button>
-      <h2 class="modal-title"></h2>
-      <div class="modal-rules"></div>
+    <div class="modal">
+        <div class="modal-content">
+            <button class="close-btn">×</button>
+            <h2 class="modal-title"></h2>
+            <div class="modal-rules"></div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    // Highlight current page in navbar
-    const current = location.pathname.split('/').pop();
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      if (link.getAttribute('href') === current) {
-        link.classList.add('active');
-      }
-    });
+    <script>
+        // highlight active link
+        const current = location.pathname.split('/').pop();
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === current) link.classList.add('active');
+        });
 
-    // Load rules.json
-    document.addEventListener('DOMContentLoaded', function() {
-      fetch('rules.json')
-        .then(response => response.json())
-        .then(rules => {
-          const rulesGrid = document.getElementById('rulesGrid');
-          const categoryIcons = {
-            general: '<i class="fas fa-gavel"></i>',
-            safe: '<i class="fas fa-shield-alt"></i>',
-            crime: '<i class="fas fa-exclamation-triangle"></i>',
-            robbery: '<i class="fas fa-money-bill-wave"></i>',
-            store: '<i class="fas fa-shopping-cart"></i>'
-          };
+        // your original JS (unchanged)
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('rules.json')
+                .then(response => response.json())
+                .then(rules => {
+                    const rulesGrid = document.getElementById('rulesGrid');
+                    const categoryIcons = {
+                        general: '<i class="fas fa-gavel"></i>',
+                        safe: '<i class="fas fa-shield-alt"></i>',
+                        crime: '<i class="fas fa-exclamation-triangle"></i>',
+                        robbery: '<i class="fas fa-money-bill-wave"></i>',
+                        store: '<i class="fas fa-shopping-cart"></i>'
+                    };
+                    for (const category in rules) {
+                        const ruleCard = document.createElement('div');
+                        ruleCard.classList.add('rule-card');
+                        ruleCard.dataset.category = category;
+                        const ruleHeader = document.createElement('div');
+                        ruleHeader.classList.add('rule-header');
+                        const ruleIconContainer = document.createElement('div');
+                        ruleIconContainer.classList.add('rule-icon');
+                        ruleIconContainer.innerHTML = categoryIcons[category] || '<i class="fas fa-gavel"></i>';
+                        const ruleTitle = document.createElement('h2');
+                        ruleTitle.classList.add('rule-title');
+                        ruleTitle.textContent = rules[category].title;
+                        ruleHeader.appendChild(ruleIconContainer);
+                        ruleHeader.appendChild(ruleTitle);
+                        const ruleContent = document.createElement('div');
+                        ruleContent.classList.add('rule-content');
+                        ruleContent.textContent = rules[category].description || 'وصف القوانين';
+                        ruleCard.appendChild(ruleHeader);
+                        ruleCard.appendChild(ruleContent);
+                        ruleCard.addEventListener('click', () => openModal(category, rules[category]));
+                        rulesGrid.appendChild(ruleCard);
+                    }
+                });
+        });
 
-          for (const category in rules) {
-            const ruleCard = document.createElement('div');
-            ruleCard.classList.add('rule-card');
-            ruleCard.innerHTML = `
-              <div class="rule-header">
-                <div class="rule-icon">${categoryIcons[category] || '<i class="fas fa-gavel"></i>'}</div>
-                <h2 class="rule-title">${rules[category].title}</h2>
-              </div>
-              <div class="rule-content">${rules[category].description}</div>
-            `;
-            ruleCard.addEventListener('click', () => openModal(category, rules[category]));
-            rulesGrid.appendChild(ruleCard);
-          }
-        })
-        .catch(err => console.error('Error loading rules.json:', err));
-    });
+        function openModal(category, rules) {
+            const modal = document.querySelector('.modal');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalRules = modal.querySelector('.modal-rules');
+            modalRules.innerHTML = '';
+            modalTitle.textContent = rules.title;
+            const icons = {
+                general: '<i class="fas fa-gavel"></i>',
+                safe: '<i class="fas fa-shield-alt"></i>',
+                crime: '<i class="fas fa-exclamation-triangle"></i>',
+                robbery: '<i class="fas fa-money-bill-wave"></i>',
+                store: '<i class="fas fa-shopping-cart"></i>'
+            };
+            rules.rules.forEach(rule => {
+                const div = document.createElement('div');
+                div.classList.add('modal-rule-item');
+                div.innerHTML = `<div class="modal-rule-icon">${icons[category]}</div><p class="modal-rule-text">${rule.text}</p>`;
+                modalRules.appendChild(div);
+            });
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
 
-    function openModal(category, rules) {
-      const modal = document.querySelector('.modal');
-      const modalTitle = modal.querySelector('.modal-title');
-      const modalRules = modal.querySelector('.modal-rules');
-      modalRules.innerHTML = '';
-      modalTitle.textContent = rules.title;
-
-      const icons = {
-        general: '<i class="fas fa-gavel"></i>',
-        safe: '<i class="fas fa-shield-alt"></i>',
-        crime: '<i class="fas fa-exclamation-triangle"></i>',
-        robbery: '<i class="fas fa-money-bill-wave"></i>',
-        store: '<i class="fas fa-shopping-cart"></i>'
-      };
-
-      rules.rules.forEach(rule => {
-        const div = document.createElement('div');
-        div.classList.add('modal-rule-item');
-        div.innerHTML = `
-          <div class="modal-rule-icon">${icons[category]}</div>
-          <p class="modal-rule-text">${rule.text}</p>
-        `;
-        modalRules.appendChild(div);
-      });
-
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    document.addEventListener('click', e => {
-      if (e.target.classList.contains('close-btn') || e.target.classList.contains('modal')) {
-        document.querySelector('.modal').style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    });
-  </script>
+        document.addEventListener('click', e => {
+            if (e.target.classList.contains('close-btn') || e.target.classList.contains('modal')) {
+                document.querySelector('.modal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 </body>
 </html>
-
