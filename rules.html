@@ -1,462 +1,208 @@
-
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Law Town RP</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png?ex=68f120f1&is=68efcf71&hm=c500b4994c7e3310f36a9efd35ba20d0a4e22cfc58259e584691374ff11da61b&">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Law Town RP - القوانين</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+    :root {
+      --primary: #ffffff;
+      --dark: #640000;
+      --light: #ffffff;
+      --hover: rgb(206, 0, 0);
+      --active: #ffaaaa;
+    }
 
-        :root {
-            --primary: #ffffff;
-            --dark: #640000;
-            --light: #ffffff;
-            --hover: rgb(206, 0, 0);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+      user-select: none;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-            user-select: none; 
-        }
+    body {
+      background: linear-gradient(135deg, var(--dark), #8f0202);
+      color: var(--light);
+      min-height: 100vh;
+    }
 
-        body {
-            background: linear-gradient(135deg, var(--dark), #8f0202);
-            color: var(--light);
-            min-height: 100vh;
-        }
+    /* Navbar */
+    .navbar {
+      background: rgba(116, 1, 1, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        
-        .navbar {
-            background: rgba(116, 1, 1, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-        }
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
-        .logo:hover {
-            text-shadow: 0 0 15px var(--primary);
-        }
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      position: relative;
+    }
 
-        .discord-btn {
-            background: var(--primary);
-            color: var(--dark);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            
-        }
+    .nav-links a:hover {
+      color: var(--hover);
+    }
 
-        .discord-btn:hover {
-            background: var(--hover);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-        }
+    .nav-links a.active {
+      color: var(--active);
+    }
 
-        
-        .container {
-            max-width: 1200px;
-            margin: 100px auto 50px;
-            padding: 0 20px;
-        }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--active);
+      border-radius: 10px;
+    }
 
-        .rules-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+    .discord-btn {
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .rule-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            transition: 0.3s;
-            cursor: pointer;
-            border: 1px solid rgb(107, 2, 2);
-        }
+    .discord-btn:hover {
+      background: var(--hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    }
 
-        .rule-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-        }
+    .discord-btn img {
+      width: 25px;
+      height: 25px;
+    }
 
-        .rule-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
+    /* Page Layout */
+    .container {
+      max-width: 1200px;
+      margin: 100px auto 50px;
+      padding: 0 20px;
+    }
 
-        .rule-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--dark);
-        }
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
 
-        .rule-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+    .rule-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 25px;
+      transition: 0.3s;
+      cursor: pointer;
+      border: 1px solid rgb(107, 2, 2);
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
 
-        .rule-content {
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
-        }
+    .rule-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+    }
 
-        
-        .footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: rgba(255, 255, 255, 0.05);
-        }
+    .rule-card:nth-child(1) { animation-delay: 0.2s; }
+    .rule-card:nth-child(2) { animation-delay: 0.4s; }
+    .rule-card:nth-child(3) { animation-delay: 0.6s; }
 
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
+    .rule-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
 
-        
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+    .rule-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
 
-        .modal-content {
-            background: var(--dark);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 800px; 
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            border: 1px solid var(--primary);
-        }
+    .rule-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
 
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+    .rule-content {
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.8);
+    }
 
-        .modal-rules {
-            margin-top: 20px;
-        }
+    .footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+      background: rgba(255, 255, 255, 0.05);
+    }
 
-        .modal-rule-item {
-            padding: 15px;
-            border-bottom: 1px solid rgba(139, 6, 6, 0.1);
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-        }
-        .modal-rule-text {
-          flex: 1; 
-        }
-        .modal-rule-icon {
-          width: 50px; 
-          height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.5rem;
-          color: var(--light); 
-        }
-        .modal-rule-icon i {
-          color: var(--light); 
-        }
-        
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .rule-card {
-            animation: fadeIn 0.5s ease-out forwards;
-            opacity: 0;
-        }
-
-        .rule-card:nth-child(1) { animation-delay: 0.2s; }
-        .rule-card:nth-child(2) { animation-delay: 0.4s; }
-        .rule-card:nth-child(3) { animation-delay: 0.6s; }
-        .rule-card:nth-child(4) { animation-delay: 0.8s; }
-        .rule-card:nth-child(5) { animation-delay: 1s; }
-
-        
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .discord-btn {
-                padding: 0.5rem 1rem;
-            }
-
-            .container {
-                margin-top: 80px;
-            }
-
-            .rules-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 10px;
-            }
-            .modal-rule-item {
-              flex-direction: column; 
-              align-items: flex-start; 
-              gap: 10px;
-            }
-            .modal-rule-text {
-              flex: none;
-            }
-        }
-
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--hover);
-        }
-    </style>
+    @media (max-width: 768px) {
+      .nav-links { gap: 1rem; font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
-    
-    <nav class="navbar">
-        <a href="#" class="logo">Law Town RP</a>
-        <a href="https://discord.gg/C9NGY4TKBe" class="discord-btn" target="_blank">
-            <i class="fab fa-discord"></i>
-            انضم للديسكورد
-        </a>
-    </nav>
 
-    
-    <div class="container">
-        <div class="rules-grid" id="rulesGrid">
-            </div>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Law Town RP</a>
+    <div class="nav-links">
+      <a href="index.html">الصفحة الرئيسية</a>
+      <a href="rules.html" class="active">القوانين</a>
+      <a href="https://your-store-link.com" target="_blank">المتجر</a>
     </div>
-
-    
-    <footer class="footer">
-        <p>جميع الحقوق محفوظة &copy; 2025</p>
-    </footer>
-
-    
-    <div class="modal">
-        <div class="modal-content">
-            <button class="close-btn">×</button>
-            <h2 class="modal-title"></h2>
-            <div class="modal-rules">
-            </div>
-        </div>
-    </div>
-
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        
-        fetch('rules.json')
-          .then(response => response.json())
-          .then(rules => {
-            
-            const rulesGrid = document.getElementById('rulesGrid');
-
-            
-            const categoryIcons = {
-              general: '<i class="fas fa-gavel"></i>',
-              safe: '<i class="fas fa-shield-alt"></i>',
-              crime: '<i class="fas fa-exclamation-triangle"></i>',
-              robbery: '<i class="fas fa-money-bill-wave"></i>',
-              store: '<i class="fas fa-shopping-cart"></i>'
-            };
-
-            
-            for (const category in rules) {
-              
-              const ruleCard = document.createElement('div');
-              ruleCard.classList.add('rule-card');
-              ruleCard.dataset.category = category;
-
-              
-              const ruleHeader = document.createElement('div');
-              ruleHeader.classList.add('rule-header');
-
-              
-              const ruleIconContainer = document.createElement('div');
-              ruleIconContainer.classList.add('rule-icon');
-
-              
-              if (rules[category].icon) {
-                  const ruleIconImage = document.createElement('img');
-                  ruleIconImage.src = rules[category].icon;
-                  ruleIconImage.alt = rules[category].title + ' Icon'; 
-                  ruleIconContainer.appendChild(ruleIconImage);
-              } else {
-                  
-                  ruleIconContainer.innerHTML = categoryIcons[category] || '<i class="fas fa-gavel"></i>';
-              }
-
-              
-              const ruleTitle = document.createElement('h2');
-              ruleTitle.classList.add('rule-title');
-              ruleTitle.textContent = rules[category].title;
-
-              
-              ruleHeader.appendChild(ruleIconContainer);
-              ruleHeader.appendChild(ruleTitle);
-
-              
-              const ruleContent = document.createElement('div');
-              ruleContent.classList.add('rule-content');
-              ruleContent.textContent = rules[category].description || 'وصف القوانين '; 
-
-              
-              ruleCard.appendChild(ruleHeader);
-              ruleCard.appendChild(ruleContent);
-
-              
-              ruleCard.addEventListener('click', () => {
-                openModal(category, rules[category]);
-              });
-
-              
-              rulesGrid.appendChild(ruleCard);
-            }
-          })
-          .catch(error => console.error('Error fetching rules:', error));
-      });
-
-        function openModal(category, rules) {
-            const modal = document.querySelector('.modal');
-            const modalTitle = modal.querySelector('.modal-title');
-            const modalRules = modal.querySelector('.modal-rules');
-
-            
-            modalRules.innerHTML = '';
-
-            
-            modalTitle.textContent = rules.title;
-
-            
-            rules.rules.forEach((rule, index) => { 
-                const modalRuleItem = document.createElement('div');
-                modalRuleItem.classList.add('modal-rule-item');
-                if(rule.isNote){
-                  modalRuleItem.classList.add('modal-rule-note');
-                }
-
-                
-                  const ruleIcon = document.createElement('div');
-                  ruleIcon.classList.add('modal-rule-icon');
-                  
-                  const categoryIcons = {
-                    general: '<i class="fas fa-gavel"></i>',
-                    safe: '<i class="fas fa-shield-alt"></i>',
-                    crime: '<i class="fas fa-exclamation-triangle"></i>',
-                    robbery: '<i class="fas fa-money-bill-wave"></i>',
-                    store: '<i class="fas fa-shopping-cart"></i>'
-                  };
-                  ruleIcon.innerHTML = categoryIcons[category] || '<i class="fas fa-gavel"></i>';
-                  modalRuleItem.appendChild(ruleIcon);
-
-                
-                const ruleText = document.createElement('p');
-                ruleText.classList.add('modal-rule-text');
-                ruleText.textContent = rule.text;
-                modalRuleItem.appendChild(ruleText);
-
-                modalRules.appendChild(modalRuleItem);
-            });
-
-            
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.querySelector('.close-btn').addEventListener('click', () => {
-            document.querySelector('.modal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                document.querySelector('.modal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-        
-    </script>
-</body>
-</html>
+    <a href="https://cfx.re/join/yourfivemcode" class="discord-btn" target="_blank">
+      <img src="https://cdn.discordapp.com/attachments/1315712201088176220/1428124033658208256/fivem.png" alt="FiveM">
+      انضم الآن
+    </a>
+  </
