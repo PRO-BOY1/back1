@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
@@ -8,26 +9,161 @@
   <link rel="icon" href="https://cdn.discordapp.com/attachments/1315712201088176220/1428060997721264219/LTlogonoocircle.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
-    :root {--primary:#fff;--dark:#640000;--hover:#b60000;--active:#ffaaaa;}
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-    body{background:linear-gradient(135deg,var(--dark),#8f0202);color:var(--primary);min-height:100vh;display:flex;flex-direction:column;text-align:center;}
-    .navbar{background:rgba(116,1,1,0.95);backdrop-filter:blur(10px);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,0.2);}
-    .logo{font-size:2rem;font-weight:900;color:var(--primary);text-decoration:none;}
-    .nav-links{display:flex;gap:2rem;}
-    .nav-links a{color:var(--primary);text-decoration:none;font-weight:600;position:relative;transition:.3s;}
-    .nav-links a:hover{color:var(--hover);}
-    .nav-links a.active{color:var(--active);}
-    .nav-links a.active::after{content:'';position:absolute;bottom:-5px;left:0;right:0;height:2px;background:var(--active);border-radius:10px;}
+    :root {
+      --primary: #ffffff;
+      --dark: #640000;
+      --hover: rgb(206, 0, 0);
+      --active: #ffaaaa;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
+    body {
+      background: linear-gradient(135deg, var(--dark), #8f0202);
+      color: var(--primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(116, 1, 1, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--hover); }
+
+    .nav-links a.active {
+      color: var(--active);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--active);
+      border-radius: 10px;
+    }
+
+    .fivem-btn {
+      background: var(--primary);
+      color: var(--dark);
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s;
+    }
+
+    .fivem-btn:hover {
+      background: var(--hover);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+    }
+
+    .fivem-btn img {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      margin-top: 100px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
     .join-btn{background:var(--primary);color:var(--dark);padding:.7rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;display:flex;align-items:center;gap:10px;}
     .join-btn:hover{background:var(--hover);color:var(--light);transform:translateY(-2px);}
     .join-btn img{width:25px;height:25px;}
-    .hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem;}
-    .hero h1{font-size:3rem;font-weight:900;margin-bottom:1rem;}
-    .hero p{font-size:1.3rem;max-width:600px;margin-bottom:2rem;}
-    footer{background:rgba(255,255,255,0.05);padding:1rem;}
+
+    footer {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+    }
+
+    /* RESPONSIVE FIXES */
+    @media (max-width: 900px) {
+      .navbar {
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .logo {
+        font-size: 1.7rem;
+      }
+      .hero {
+        margin-top: 150px;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
+
   <nav class="navbar">
     <a href="index.html" class="logo">Law Town RP</a>
     <div class="nav-links">
@@ -35,7 +171,7 @@
       <a href="rules.html">القوانين</a>
       <a href="store.html">المتجر</a>
     </div>
- <a href="https://discord.gg/NwgHGFDVXG" target="_blank" class="join-btn">
+ <a href="https://discord.gg/gUrKC6b3NK" target="_blank" class="join-btn">
       <i class="fab fa-discord"></i> انضم الآن
     </a>
   </nav>
@@ -43,8 +179,8 @@
   <section class="hero">
     <h1>مرحباً بك في Law Town RP</h1>
     <p>ادخل إلى عالم مليء بالتفاصيل الواقعية والمغامرات الشيقة. انضم إلينا الآن وابدأ رحلتك!</p>
-    <a href="https://cfx.re/join/ltrp" target="_blank" class="join-btn">
-      <img src="https://media.discordapp.net/attachments/1317518281380462692/1431215951160016980/2560px-FiveM-Logo.png?ex=68fc9b39&is=68fb49b9&hm=2094e8c36ce9c8e50ab21ca438f1122c7b17cdd409995a5d5970c99a1e8cbb61&=&format=webp&quality=lossless&width=1240&height=698" alt="FiveM"> الدخول الان
+    <a href="https://cfx.re/join/dr9omj" target="_blank" class="fivem-btn">
+      <img src="https://media.discordapp.net/attachments/1317518281380462692/1431215951160016980/2560px-FiveM-Logo.png?ex=68fc9b39&is=68fb49b9&hm=2094e8c36ce9c8e50ab21ca438f1122c7b17cdd409995a5d5970c99a1e8cbb61&=&format=webp&quality=lossless&width=1240&height=698" alt="FiveM"> انضم الآن
     </a>
   </section>
 
@@ -52,11 +188,5 @@
     <p>© 2025 Law Town RP - جميع الحقوق محفوظة</p>
   </footer>
 
-  <script>
-    const current = location.pathname.split('/').pop();
-    document.querySelectorAll('.nav-links a').forEach(link=>{
-      if(link.getAttribute('href')===current)link.classList.add('active');
-    });
-  </script>
 </body>
 </html>
