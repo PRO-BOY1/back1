@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
@@ -215,6 +216,34 @@
         .rule-card:nth-child(4){animation-delay:0.8s;}
         .rule-card:nth-child(5){animation-delay:1s;}
 
+      @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  .logo {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  .fivem-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  .container {
+    margin-top: 150px !important;
+  }
+}
+
+
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--hover); }
@@ -228,9 +257,9 @@
         <div class="nav-links">
             <a href="index.html">الصفحة الرئيسية</a>
             <a href="rules.html" class="active">القوانين</a>
-            <a href="https://your-store-link.com" target="_blank">المتجر</a>
+            <a href="store.html">المتجر</a>
         </div>
- <a href="https://discord.gg/NwgHGFDVXG" target="_blank" class="join-btn">
+ <a href="https://discord.gg/gUrKC6b3NK" target="_blank" class="join-btn">
       <i class="fab fa-discord"></i> انضم الآن
     </a>
     </nav>
@@ -324,7 +353,3 @@
     </script>
 </body>
 </html>
-
-
-
-
